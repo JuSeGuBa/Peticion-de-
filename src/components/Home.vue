@@ -40,7 +40,7 @@ const circles: Circle[] = Array.from({ length: 8 }, () => ({
 
     <!-- Contenido principal -->
     <div class="home-content">
-      <h1>Nuestro viaje ❤️‍🩹</h1>
+      <h1>Esta pagina es para tiii diviertete mi Reina 👑❤️‍🩹</h1>
       <div class="button-group">
         <router-link to="/historia" class="btn btn-story">
           Nuestra historia 🕰️
