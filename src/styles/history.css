@@ -111,6 +111,7 @@
     background 0.3s ease,
     transform 0.2s ease;
   display: inline-block;
+  text-align: center; /* 👈 Asegura que el texto esté centrado */
 }
 
 .back-btn:hover {
@@ -175,6 +176,7 @@
 }
 
 /* RESPONSIVE */
+/* RESPONSIVE - CORREGIDO */
 @media (max-width: 480px) {
   .history-container {
     padding: 1rem 0 1.5rem 0;
@@ -198,7 +200,9 @@
 
   .back-btn {
     width: 90%;
-    margin: 1.5rem auto;
+    max-width: 300px; /* 👈 Limita el ancho máximo */
+    margin: 1.5rem auto; /* 👈 Centrado automático */
+    display: block; /* 👈 Cambia a bloque para mejor centrado */
   }
 
   /* Modal responsive */

@@ -79,40 +79,44 @@ function closeModal() {
 
 <template>
   <div class="history-container">
-    <h1>Nuestra Historia jeje</h1>
+    <div class="content-wrapper">
+      <h1>Nuestra Historia jeje</h1>
 
-    <div class="timeline">
-      <div v-for="(memory, i) in memories" :key="i" class="memory-card">
-        <!-- Mostrar imagen o botón según el tipo -->
-        <img
-          v-if="memory.image && memory.type !== 'text'"
-          :src="memory.image"
-          :alt="memory.title"
-          @click="openModal(memory)"
-          class="clickable-image"
-        />
+      <div class="timeline">
+        <div v-for="(memory, i) in memories" :key="i" class="memory-card">
+          <!-- Mostrar imagen o botón según el tipo -->
+          <img
+            v-if="memory.image && memory.type !== 'text'"
+            :src="memory.image"
+            :alt="memory.title"
+            @click="openModal(memory)"
+            class="clickable-image"
+          />
 
-        <!-- Botón para el modal de texto -->
-        <div
-          v-else-if="memory.type === 'text'"
-          class="text-modal-trigger"
-          @click="openModal(memory)"
-        >
-          <div class="trigger-content">
-            <span class="trigger-icon">💌</span>
-            <span class="trigger-text">Recuerdo Secretito jeje</span>
+          <!-- Botón para el modal de texto -->
+          <div
+            v-else-if="memory.type === 'text'"
+            class="text-modal-trigger"
+            @click="openModal(memory)"
+          >
+            <div class="trigger-content">
+              <span class="trigger-icon">💌</span>
+              <span class="trigger-text">Recuerdo Secretito jeje</span>
+            </div>
+          </div>
+
+          <div class="memory-text">
+            <h2>{{ memory.title }}</h2>
+            <p class="date">{{ memory.date }}</p>
+            <p>{{ memory.description }}</p>
           </div>
         </div>
+      </div>
 
-        <div class="memory-text">
-          <h2>{{ memory.title }}</h2>
-          <p class="date">{{ memory.date }}</p>
-          <p>{{ memory.description }}</p>
-        </div>
+      <div class="button-container">
+        <router-link to="/" class="back-btn">Volver al inicio</router-link>
       </div>
     </div>
-
-    <router-link to="/" class="back-btn">Volver al inicio</router-link>
 
     <!-- MODAL DE IMAGEN -->
     <div v-if="selectedImage" class="modal-overlay" @click="closeModal">
@@ -122,30 +126,33 @@ function closeModal() {
     <!-- MODAL DE TEXTO -->
     <div v-if="showTextModal" class="modal-overlay" @click="closeModal">
       <div class="text-modal" @click.stop>
-        <h3>Unos de los recuerdos mas importantes y hermosos que hemos tenido</h3>
+        <h3>
+          Unos de los recuerdos mas importantes y hermosos que hemos tenido
+        </h3>
         <div class="text-content">
           <p>
-            - Cuando sentimos esa conexion tan fuerte que sin darnos en cuenta de un
-            momento a otro, estabamos haciendo el amor y sintiendo todo a ditancia, no
-            sabiamos que pasaba pero nuestro amor y nuestros cuerpos si lo sabian, tu
-            sentias y yo sentia, y fue cuando supimos que el "tu y yo" era lo mas unico de
-            este mundo.
+            - Cuando sentimos esa conexion tan fuerte que sin darnos en cuenta
+            de un momento a otro, estabamos haciendo el amor y sintiendo todo a
+            ditancia, no sabiamos que pasaba pero nuestro amor y nuestros
+            cuerpos si lo sabian, tu sentias y yo sentia, y fue cuando supimos
+            que el "tu y yo" era lo mas unico de este mundo.
           </p>
           <p>
-            - La primera vez que lo hicimos por llamada, nuestra conexion aumento, y no
-            solo sentiamos, tambien escuchabamos, sentiamos placer y amor y conexion, y
-            fue un momento hermoso.
+            - La primera vez que lo hicimos por llamada, nuestra conexion
+            aumento, y no solo sentiamos, tambien escuchabamos, sentiamos placer
+            y amor y conexion, y fue un momento hermoso.
           </p>
           <p>
-            - La primera vez que lo hicimos por videollamada, tu estabas en sabanas y
-            hermosa, nuestro amor ya era tan grande, que aunque nos habiamos entregado
-            esta vez fue mas fuerte y real, hubo deseo, placer, amor, conexion, y es algo
-            que jamas olvidare.
+            - La primera vez que lo hicimos por videollamada, tu estabas en
+            sabanas y hermosa, nuestro amor ya era tan grande, que aunque nos
+            habiamos entregado esta vez fue mas fuerte y real, hubo deseo,
+            placer, amor, conexion, y es algo que jamas olvidare.
           </p>
           <p>
-            Te amo más de lo que las palabras pueden expresar. Gracias por esos momentos.
-            Y no espero el día que sea fisico ese aquel dia de tanta espera que llegara al
-            fin, y nuestro amor sera mas inrrompible de lo que es ahora
+            Te amo más de lo que las palabras pueden expresar. Gracias por esos
+            momentos. Y no espero el día que sea fisico ese aquel dia de tanta
+            espera que llegara al fin, y nuestro amor sera mas inrrompible de lo
+            que es ahora
           </p>
           <p class="signature">Te Amo ❤️‍🩹</p>
         </div>
@@ -154,5 +161,4 @@ function closeModal() {
     </div>
   </div>
 </template>
-
 <style src="../styles/history.css"></style>
